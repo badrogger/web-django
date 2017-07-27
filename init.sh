@@ -1,12 +1,21 @@
-sudo ln -sf /home/jops/learning/web-django/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/default
-sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
+#nginx conf
+sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-enabled/test.conf
+sudo ln -s /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
 sudo /etc/init.d/nginx restart
 
-#sudo rm -r /etc/gunicorn.d/*
-#sudo ln -sf /home/box/web/etc/hello_gnc.py   /etc/gunicorn.d/hello_gnc.py
-#sudo ln -sf /home/box/web/etc/ask_gnc.py   /etc/gunicorn.d/ask_gnc.py
-#sudo /etc/init.d/gunicorn restart
-sudo gunicorn -c /home/box/web/etc/hello_gnc.py hello:wsgi_application
-sudo gunicorn -c /home/box/web/etc/ask_gnc.py ask.wsgi:application
-#gunicorn -b 0.0.0.0:8080 hello:app
-#gunicorn -b 0.0.0.0:8000 etc/ask/ask.wsgi:app &
+#gunicorn conf
+sudo rm /etc/gunicorn.d/test
+sudo rm /etc/gunicorn.d/ask
+sudo ln -s /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
+sudo ln -s /home/box/web/etc/gunicorn_ask.conf /etc/gunicorn.d/ask
+sudo /etc/init.d/gunicorn restart
+
+#database conf
+#sudo /etc/init.d/mysql restart
+#mysql -uroot -e "DROP DATABASE ASK"
+#mysql -uroot -e "CREATE DATABASE ASK"
+#mysql -uroot -e "CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa'"
+#mysql -uroot -e "GRANT ALL PRIVILEGES ON ASK.* TO 'sa'@'localhost'"
+
+#python /home/box/web/ask/manage.py syncdb
