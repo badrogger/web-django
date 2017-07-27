@@ -6,5 +6,7 @@ sudo /etc/init.d/nginx restart
 #sudo ln -sf /home/box/web/etc/hello_gnc.py   /etc/gunicorn.d/hello_gnc.py
 #sudo ln -sf /home/box/web/etc/ask_gnc.py   /etc/gunicorn.d/ask_gnc.py
 #sudo /etc/init.d/gunicorn restart
-gunicorn -b 0.0.0.0:8080 hello:app
-gunicorn -b 0.0.0.0:8000 etc/ask/ask.wsgi:app &
+sudo gunicorn -c /home/box/web/etc/hello_gnc.py hello:wsgi_application
+sudo gunicorn -c /home/box/web/etc/ask_gnc.py ask.wsgi:application
+#gunicorn -b 0.0.0.0:8080 hello:app
+#gunicorn -b 0.0.0.0:8000 etc/ask/ask.wsgi:app &
