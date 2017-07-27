@@ -32,7 +32,7 @@ def paginate(request, qs):
   return page, paginator
 
 def test(request, *args, **kwargs):
-  return HttpResponse('OK')
+  return HttpResponse('OK', status=200)
 
 def qa_list_all(request):
    qa = Question.objects.all()
