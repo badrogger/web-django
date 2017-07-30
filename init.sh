@@ -18,4 +18,4 @@ mysql -uroot -e "CREATE DATABASE ASK"
 mysql -uroot -e "CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON ASK.* TO 'sa'@'localhost'"
 
-python /home/box/web/ask/manage.py syncdb
+python /home/box/web/ask/manage.py makemigrations
