@@ -81,7 +81,7 @@ class SignupForm(forms.Form):
         text = self.cleaned_data['password']
         if text.strip() == '':
             validation_error("Password is empty!")
-    return text
+        return text
 
     def clean_email(self):
         text = self.cleaned_data['email']

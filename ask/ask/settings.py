@@ -54,82 +54,82 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : 'ASK',
+        'USER' : 'sa',
+        'PASSWORD': 'sa',
+        'HOST': 'localhost',
+        'PORT': 3306,
     }
 }
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME' : 'ASK',
-#        'USER' : 'sa',
-#        'PASSWORD': 'sa',
-#        'HOST': 'localhost',
-#        'PORT': 3306,
-#    }
-#}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 
-USE_I18N = True
+# USE_I18N = True
 
-USE_L10N = True
+# USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-BASE_DIR = os.path.abspath(__file__)
-BASE_DIR = os.path.dirname(BASE_DIR)
-BASE_DIR = os.path.dirname(BASE_DIR)
-TEMPLATE_DIRS = (
-   BASE_DIR + '/templates',
-)
+# BASE_DIR = os.path.abspath(__file__)
+# BASE_DIR = os.path.dirname(BASE_DIR)
+# BASE_DIR = os.path.dirname(BASE_DIR)
+# TEMPLATE_DIRS = (
+#   BASE_DIR + '/templates',
+# )
 
-STATIC_ROOT = BASE_DIR + '/static'
-#LOGIN_REDIRECT_URL = '/'
+# STATIC_ROOT = BASE_DIR + '/static'
+# # LOGIN_REDIRECT_URL = '/'
 
-#LOGGING = {
-#    'version': 1,
-#    'disable_existing_loggers': False,
-#    'formatters': {
-#        'verbose': {
-#            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-#            'datefmt' : "%d/%b/%Y %H:%M:%S"
-#        },
-#        'simple': {
-#            'format': '%(levelname)s %(message)s'
-#        },
-#    },
-#    'handlers': {
-#        'file': {
-#            'level': 'DEBUG',
-#            'class': 'logging.FileHandler',
-#            'filename': 'mysite.log',
-#            'filename': BASE_DIR + '/logging/debug.log',
-#            'formatter': 'verbose'
-#        },
-#    },
-#    'loggers': {
-#        'django.request': {
-#            'handlers': ['file'],
-#            'level': 'DEBUG',
-#        },
-#        'qa': {
-#            'handlers': ['file'],
-#            'level': 'DEBUG',
-#        },
-#    },
-#}
+# #LOGGING = {
+# #    'version': 1,
+# #    'disable_existing_loggers': False,
+# #    'formatters': {
+# #        'verbose': {
+# #            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+# #            'datefmt' : "%d/%b/%Y %H:%M:%S"
+# #        },
+# #        'simple': {
+# #            'format': '%(levelname)s %(message)s'
+# #        },
+# #    },
+# #    'handlers': {
+# #        'file': {
+# #            'level': 'DEBUG',
+# #            'class': 'logging.FileHandler',
+# #            'filename': 'mysite.log',
+# #            'filename': BASE_DIR + '/logging/debug.log',
+# #            'formatter': 'verbose'
+# #        },
+# #    },
+# #    'loggers': {
+# #        'django.request': {
+# #            'handlers': ['file'],
+# #            'level': 'DEBUG',
+# #        },
+# #        'qa': {
+# #            'handlers': ['file'],
+# #            'level': 'DEBUG',
+# #        },
+# #    },
+# # }
