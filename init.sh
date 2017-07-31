@@ -20,3 +20,4 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON ASK.* TO 'ba'@'localhost'"
 mysql -uroot -e "FLUSH PRIVILEGES;"
 
 python /home/box/web/ask/manage.py makemigrations
+python /home/box/web/ask/manage.py migrate
