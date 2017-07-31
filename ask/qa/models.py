@@ -4,7 +4,16 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+class QuestionManager(models.Manager):
+    def new():
+        pass
+
+    def popular():
+        pass
+
+
 class Question(models.Model):
+    objects = QuestionManager()
     title = models.CharField(default="", max_length=255)
     text = models.TextField(default="")
     added_at = models.DateField(null=True)
@@ -13,7 +22,7 @@ class Question(models.Model):
     likes = models.ManyToManyField(User, related_name='question_likes')
 
     def __str__(self):
-        return self.titie;
+        return self.titie
 
     def get_url(self):
         return "/question/{}/".format(self.id)
