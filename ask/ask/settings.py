@@ -20,7 +20,7 @@ SECRET_KEY = '_pk4ute=^x!+yjiyjte)^e2dr-^+%(95@g9*b4h-68x9x(2bhe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+# TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -61,16 +61,48 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 #    }
 # }
 
+
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'ASK',
-        'USER' : 'ba',
-        'PASSWORD': 'ba',
+        'NAME': 'ASK',
+        'USER': 'root',
+#        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 3306,
     }
 }
+
+
+BASE_DIR = os.path.abspath(__file__)
+BASE_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = os.path.dirname(BASE_DIR)
+
+
+DEBUG = True
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, "ask/templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': DEBUG,
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ]
+            # ... some options here ...
+        },
+    },
+]
+
+STATIC_URL = BASE_DIR + '/static/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
