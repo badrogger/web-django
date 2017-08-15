@@ -9,30 +9,43 @@ def validation_error(text):
     raise forms.ValidationError(u'Title is empty', code=12)
 
 
+# class AskForm(forms.Form):
+#     title = forms.CharField(max_length=255)
+#     text = forms.CharField(widget=forms.Textarea)
+
+#     def clean_title(self):
+#         title = self.cleaned_data['title']
+#         if title.strip() == '':
+#             validation_error("Title is empty!")
+#         return title
+
+#     def clean_text(self):
+#         text = self.cleaned_data['text']
+#         if text.strip() == '':
+#             validation_error("Text is empty!")
+#         return text
+
+#     def save(self):
+#         if self._user.is_anonymous():
+#             self.cleaned_data['author_id'] = 1
+#         else:
+#             self.cleaned_data['author'] = self._user
+#         post = Question(**self.cleaned_data)
+#         post.save()
+#         return post
+
 class AskForm(forms.Form):
-    title = forms.CharField(max_length=255)
+    title = forms.CharField(max_length=100)
     text = forms.CharField(widget=forms.Textarea)
 
-    def clean_title(self):
-        title = self.cleaned_data['title']
-        if title.strip() == '':
-            validation_error("Title is empty!")
-        return title
-
-    def clean_text(self):
-        text = self.cleaned_data['text']
-        if text.strip() == '':
-            validation_error("Text is empty!")
-        return text
+    def clean(self):
+        pass
 
     def save(self):
-        if self._user.is_anonymous():
-            self.cleaned_data['author_id'] = 1
-        else:
-            self.cleaned_data['author'] = self._user
-        post = Question(**self.cleaned_data)
-        post.save()
-        return post
+        question = Question(**self.cleaned_data)
+        question.author_id = self._user.id
+        question.save()
+        return question
 
 
 class AnswerForm(forms.Form):
