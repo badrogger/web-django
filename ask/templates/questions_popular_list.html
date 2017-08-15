@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Popular questions</title>   
+        <title>Popular questions</title>
     </head>
 
     <body>
@@ -17,15 +17,15 @@
         {% if p == page.number %}
            {{ p }} &nbsp;
         {% else %}
-          <a href="{% url 'popular' p %}"> {{ p }} </a> &nbsp;
+          <a href= "{{ paginator.baseurl }} {{ p }}" > {{ p }} </a> &nbsp;
         {% endif %}
       {% endfor %}
       <br>
       Questions:
       {% for question in questions %}
-      <p>  {{ question.title }}, {{ question.text }} , rate = {{ question.rating }}  
+      <p>  {{ question.title }}, {{ question.text }} , rate = {{ question.rating }}
           <a href="{% url 'question' question.id %}"> >>> </a>
-      </p> 
+      </p>
       {% endfor %}
 
     </body>

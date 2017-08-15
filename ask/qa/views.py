@@ -38,12 +38,27 @@ def test(request, *args, **kwargs):
         return HttpResponse('OK', status=200)
 
 
-def qa_list_all(request):
+def qa_list_all(request, *args, **kwargs):
+    try:
+        page = int(request.GET.get("page"))
+    except ValueError:
+        page = 1
+    except TypeError:
+        page = 1
+
     qa = Question.objects.all()
     qa = qa.order_by('-added_at')
-    page, paginator = paginate(request, qa)
+    paginator = Paginator(qa, 10)
+    page = paginator.page(page)
+    # page, paginator = paginate(request, qa)
+    context = {
+        'user': request.user,
+        'questions': page.object_list,
+        'paginator': paginator,
+        'page': page,
+    }
 
-    return render(request, 'questions_list.html', {'user':request.user, 'questions': page.object_list, 'paginator': paginator, 'page':page, })
+    return render(request, 'questions_list.html', context)
 
 
 def qa_popular_all(request):

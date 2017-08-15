@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Question #{{ question.id }}</title>   
+        <title>Question #{{ question.id }}</title>
     </head>
 
     <body>
@@ -19,8 +19,8 @@
 
       <form method="post" action="/answer/">
         {% csrf_token %}
-        <fieldset> 
-            {% for field in form %} 
+        <fieldset>
+            {% for field in form %}
              <div>
                <label> {{ field.label }} </label>
                <div> {{ field }} </div>
@@ -29,12 +29,12 @@
         </fieldset>
         <div>
            <button type="submit"> Save </button>
-        </div> 
+        </div>
       </form>
 
       Answers:
       {% for answer in answers %}
-      <p> Text = {{ answer.text }} </p> 
+      <p> Text = {{ answer.text }} </p>
       {% endfor %}
 
     </body>

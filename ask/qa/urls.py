@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^ask/', test, name='ask'),
     # url(r'^answer/', index, name='answer'),
     url(r'^popular/', qa_popular_all, name='popular'),
+    # url(r'^popular/\?page=(?P<page>\d+)', qa_popular_all, name='popular'),
     # url(r'^popular/\?page=(?P<page>\d+)', index, name='popular'),
     url(r'^new/', test, name='new'),
 ]
