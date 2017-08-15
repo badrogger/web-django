@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Questions</title>   
+        <title>Questions</title>
     </head>
 
     <body>
@@ -27,9 +27,9 @@
       <br>
       Questions:
       {% for question in questions %}
-      <p>  {{ question.title }}, {{ question.text }} , rate = {{ question.rating }} , user = {{ question.author.get_username }}    
-          <a href="{% url 'question' question.id %}"> >>> </a>
-      </p> 
+      <p>  {{ question.title }}, {{ question.text }} , rate = {{ question.rating }} , user = {{ question.author.get_username }}
+          <a href="{% url 'question' question.id %}"> {{question.id}}</a>
+      </p>
       {% endfor %}
     </body>
 </html>

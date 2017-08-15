@@ -6,9 +6,11 @@ from django.http import Http404, HttpResponseRedirect
 from qa.forms import AskForm, AnswerForm, SignupForm, LoginForm
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
+
 #import logging
 
 #logger = logging.getLogger(__name__)
+
 
 def paginate(request, qs):
     try:
