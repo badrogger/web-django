@@ -47,7 +47,7 @@ def qa_list_all(request, *args, **kwargs):
         page = 1
 
     qa = Question.objects.all()
-    qa = qa.order_by('-added_at')
+    qa = qa.order_by('-id')
     paginator = Paginator(qa, 10)
     page = paginator.page(page)
     # page, paginator = paginate(request, qa)
