@@ -39,7 +39,7 @@ class AskForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea)
 
     def clean(self):
-        pass
+        return self.cleaned_data
 
     def save(self):
         question = Question(**self.cleaned_data)

@@ -5,8 +5,8 @@ from qa.views import test, question, qa_list_all, qa_popular_all, ask_add, answe
 urlpatterns = [
     url(r'^$', qa_list_all, name='main'),
     url(r'^\?page=(?P<page>\d+)', qa_list_all, name='main'),
-    url(r'^login/', test, name='login'),
-    url(r'^signup/', test, name='signup'),
+    url(r'^login/', login_add, name='login'),
+    url(r'^signup/', signup_add, name='signup'),
     url(r'^question/(?P<id>\d+)/$', question, name='question'),
     # url(r'^question/(?P<id>\d+)/$', question, name='question'),
     url(r'^ask/', ask_add, name='ask'),
